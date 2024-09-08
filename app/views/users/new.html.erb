@@ -2,6 +2,7 @@
   <div class="row">
     <div class="col-md-10 col-lg-8 mx-auto my-5 py-4">
       <%= form_with model: @user do |f| %>
+        <%= render "shared/error_messages", object: f.object %>
         <div class="mb-3">
           <%= f.label :email, class: "form-label" %>
           <%= f.email_field :email, class: "form-control" %>
@@ -19,7 +20,7 @@
             <div class="col-sm-6 mb-5">
               <%= f.label :gender, class: "form-label" %>
               <%= f.select :gender, User.genders.keys.map { |gender| [I18n.t("activerecord.enums.user.gender.#{gender}"), gender] }, { include_blank: "選択してください" }, class: "form-control" %>            </div>
-            <div class="col-sm-6 mb-3">
+            <div class="col-sm-6 mb-5">
               <%= f.label :age_group, class: "form-label" %>
               <%= f.select :age_group, User.age_groups.keys.map { |age_group| [I18n.t("activerecord.enums.user.age_group.#{age_group}"), age_group] }, { include_blank: "選択してください" }, class: "form-control" %>
             </div>
