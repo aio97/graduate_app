@@ -7,6 +7,7 @@ ja:
     label:
       email: メールアドレス
       password: パスワード
+<<<<<<< Updated upstream
   user_sessions:
     new:
       title: ログイン
@@ -25,13 +26,5 @@ ja:
     create:
       success: "ユーザー登録が完了しました"
       failure: "ユーザー登録に失敗しました"
-  header:
-    login: ログイン
-    new_user: 新規登録
-    logout: ログアウト
-    book_index: しおり一覧
-    create_book: しおり作成
-    bookmark_index: ブックマーク一覧
-    my_page: マイページ
-    profile: 登録情報
-    my_book: 作成しおり一覧
+=======
+>>>>>>> Stashed changes
