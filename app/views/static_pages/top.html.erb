@@ -1,1 +1,36 @@
-<h1>トップページ</h1>
+<div class="container">
+  <div class="row">
+    <div class="col-md-10 col-lg-8 mx-auto my-5 py-4 text-center">
+      <div class="mb-5">
+        <h2>自分だけの特別なしおりを作ろう！</h2>
+      </div>
+      <div class="mb-5">
+        <p>
+          「私のしおり」はカスタマイズしながら旅行のしおりを作成できるサービスです
+          <br>
+          自分の欲しい情報だけを詰めて旅行への準備を始めましょう！
+        </p>
+      </div>
+      <div class="mb-2 text-center">
+        <%= link_to new_user_path, class: "btn btn-primary btn-lg" do %>
+          新規登録をして
+          <br>
+          しおりを作る
+        <% end %>
+      </div>
+    </div>
+    
+    <div class="col-md-10 col-lg-8 mx-auto my-5 py-4 text-center">
+      <div class="mb-5">
+        <p>
+          「私のしおり」はユーザー登録をせずにも楽しめます
+          <br>
+          いろんなしおりに出会って想像を膨らませてみませんか？
+        </p>
+      </div>
+      <div class="mb-2 text-center">
+        <%= link_to "しおりを見てみる", books_path, class: "btn btn-primary btn-lg" %>
+      </div>
+    </div>  
+  </div>
+</div>
