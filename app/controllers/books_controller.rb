@@ -12,10 +12,11 @@ class BooksController < ApplicationController
   def create
     @book = current_user.books.build(book_params)
     if @book.save
-      redirect_to books_path, success: t("")
+      redirect_to books_path, success: t("books.create.success")
     else
-      flash.now[:danger] = t("")
+      flash.now[:danger] = t("books.create.failure")
       render :new, status: :unprocessable_entity
+    end
   end
 
   private
