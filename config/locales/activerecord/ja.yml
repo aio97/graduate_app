@@ -2,6 +2,8 @@ ja:
   activerecord:
     models:
       user: ユーザー
+      book: しおり
+      plan: プラン
     attributes:
       user:
         email: メールアドレス
@@ -9,6 +11,23 @@ ja:
         age_group: 年代
         password: パスワード
         password_confirmation: パスワード確認
+      book:
+        title: タイトル
+        image: 背景
+        outline_title: 概要
+        outline_body: 概要詳細
+        start_time: 旅行開始日
+        end_time: 旅行終了日
+        plan_date: 日にち
+        plan_title: タイトル
+        plan_start_time: 開始時間
+        plan_end_time: 終了時間
+        plan_icon: アイコン
+        plan_location: 場所
+        plan_location_url: 場所URL
+        plan_detail: 詳細
+        plan_memo: メモ
+        plan_cost: 費用
     enums:
       user:
         gender:
