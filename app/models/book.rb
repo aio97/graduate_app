@@ -5,4 +5,5 @@ class Book < ApplicationRecord
   validates :is_public, inclusion: { in: [true, false] }
 
   belongs_to :user
+  has_many :plans, dependent: :destroy
 end
