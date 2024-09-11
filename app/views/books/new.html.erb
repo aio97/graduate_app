@@ -1,9 +1,8 @@
-<div class="container">
+ <div class="container">
   <div class="row">
     <div class="col-md-10 col-lg-8 mx-auto my-5 py-4">
       <%= form_with model: @book, class: "new_book" do |f| %>
         <%= render "shared/error_messages", object: f.object %>
-        表紙
         <div class="pb-3">
           <div class="mb-3">
             <%= f.label :title %>
@@ -18,27 +17,28 @@
             <%= f.text_area :outline_body, class: "form-control" %>
           </div>
         </div>
-        <div class="mb-3">
-          プラン
-          <div class="col-md-3 mb-3">
-            <%= f.date_field :plan_date, class: "form-control" %>
-          </div>
-          <div class="plan px-2 py-2 border border-primary">
-            <div class="row">
-              <div class="col-md-3 mb-3">
-	              <%= f.time_field :plan_start_time, class: "form-control" %>
-	            </div>
-	            <div class="col-md-9 mb-3">
-	              <%= f.text_field :plan_title, class: "form-control", placeholder: "タイトル" %>
-	            </div>
+        <div class="row">
+          <%= f.fields_for :plans do |plan_form| %>
+            <div class="col-md-3 mb-3">
+              <%= plan_form.date_field :date, class: "form-control" %>
             </div>
-	          <div class="col-md-9 mb-3 offset-md-3">
-	            <%= f.text_area :plan_detail, class: "form-control", placeholder: "詳細" %>
+            <div class="plan px-2 py-2 border border-primary">
+              <div class="row">
+                <div class="col-md-3 mb-3">
+                  <%= plan_form.time_field :start_time, class: "form-control" %>
+                </div>
+	              <div class="col-md-9 mb-3">
+	                <%= plan_form.text_field :title, class: "form-control", placeholder: "タイトル" %>
+                </div>
+              </div>
+	            <div class="col-md-9 mb-3 offset-md-3">
+	              <%= plan_form.text_area :detail, class: "form-control", placeholder: "詳細" %>
+	            </div>
 	          </div>
-	        </div>
+          <% end %>
         </div>
 
-        <div class="mb-3 text-center">
+        <div class="mt-5 mb-3 text-center">
           <div class="btn-group" role="group" aria-label="Public/Private settings">
             <button type="button" class="btn btn-outline-primary active" id="public-btn">公開</button>
             <button type="button" class="btn btn-outline-primary" id="private-btn">非公開</button>
