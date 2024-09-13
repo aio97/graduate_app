@@ -6,7 +6,7 @@ class CreateUsers < ActiveRecord::Migration[7.2]
       t.string :salt
       t.integer :gender
       t.integer :age_group
-
-      t.timestamps                null: false    end
+      t.timestamps null: false
+    end
   end
 end
