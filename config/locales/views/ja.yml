@@ -25,6 +25,17 @@ ja:
     create:
       success: ユーザー登録が完了しました
       failure: ユーザー登録に失敗しました
+  books:
+    create:
+      success: しおりを作成しました
+      failure: しおりを作成できませんでした
+    show:
+      delete_confirm: 削除しますか？
+    update:
+      success: しおりを更新しました
+      failure: しおりを更新できませんでした
+    destroy:
+      success: しおりを削除しました
   header:
     login: ログイン
     new_user: 新規登録
