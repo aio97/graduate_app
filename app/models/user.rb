@@ -10,4 +10,8 @@ class User < ApplicationRecord
 
   enum gender: { male: 0, female: 1, other: 2 }
   enum age_group: { under19: 0, twenties: 1, thirties: 2, fourties: 3, fifties: 4, over60: 5 }
+
+  def own?(object)
+    self.id == object.user_id
+  end
 end

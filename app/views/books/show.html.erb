@@ -1,16 +1,30 @@
 <div class="container">
   <div class="row">
     <div class="col-md-10 col-lg-10 mx-auto my-5 py-4">
-      <div id="book-cover" style="background-image: url('<%= asset_path('book_image.png') %>'); height: 600px; background-size: cover; background-position: center;">
-        <div class="row">
+      <div class="row book-cover" style="background-image: url('<%= asset_path('book_image.png') %>'); height: 600px; background-size: cover; background-position: center;">
+        <div class="position-relative">
           <div class="position-absolute top-50 start-50 translate-middle">
             <div class="my-5 text-center display-1">
               <%= @book.title %>
             </div>
-            <div class="col-5 mx-auto display-6">
+            <div class="col-6 mx-auto fs-4">
               <%= @book.outline_title %>
               <br>
               <%= @book.outline_body %>
+            </div>
+          </div>
+          <div class="position-absolute bottom-0 end-0">
+            <div class="pe-3 pb-3">
+              <% if current_user.own?(@book) %>
+                <div class="ms-auto">
+                  <%= link_to edit_book_path(@book), id: "button-edit-#{@book.id}" do %>
+                    <i class="bi bi-pencil-fill icon-lg"></i>
+                  <% end %>
+                  <%= link_to book_path(@book), id: "button-delete-#{@book.id}", data: { turbo_method: :delete, turbo_confirm: t("books.show.delete_confirm") } do %>
+                    <i class="bi bi-trash-fill icon-lg"></i>
+                  <% end %>
+                </div>
+              <% end %>
             </div>
           </div>
         </div>
@@ -19,21 +33,25 @@
       <div id="book-plan">
         <div class="row">
           <div class="col-9 mt-5 mx-auto">
-            <% @book.plans.each do |plan|%>
-              <div class="col-md-3 mb-3">
-                <h4><%= plan.date.strftime("%Y/%m/%d") %></h4>
-              </div>
-              <div class="row">
-                <small class="col-md-3 mb-3 fs-4">
-                  <%= plan.start_time.strftime("%H:%M") %>
-                </small>
-                <div class="col-md-9 mb-3 fs-4">
-                  <%= plan.title %>
+            <% @book.plans.each do |plan| %>
+              <div class="row mb-3">
+                <div class="col-10 mb-3">
+                  <h4><%= plan.date.strftime("%Y/%m/%d") if plan.date.present? %></h4>
                 </div>
-              </div>
-              <div class="row">
-                <div class="col-md-9 mb-3 offset-md-3 fs-4">
-                  <%= plan.detail %>
+                <div class="col-md-9">
+                  <div class="row">
+                    <div class="col-md-3 mb-3 fs-4">
+                      <%= plan.start_time.strftime("%H:%M") if plan.start_time.present? %>
+                    </div>
+                    <div class="col-md-9 mb-3 fs-4">
+                      <%= plan.title if plan.title.present? %>
+                    </div>
+                  </div>
+                  <div class="row">
+                    <div class="col-md-9 mb-3 offset-md-3 fs-4">
+                      <%= plan.detail if plan.detail.present? %>
+                    </div>
+                  </div>
                 </div>
               </div>
             <% end %>
