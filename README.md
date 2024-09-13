@@ -1,24 +1,55 @@
-# README
+# 旅行のしおり作成・共有サービス
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+■サービス概要  
+旅行のしおりを作成、共有するサービスです。
 
-Things you may want to cover:
+■ このサービスへの思い・作りたい理由  
+小さなころから旅行のしおりを見たり作ったりすることが好きでした。
+旅行のしおりを見ることで、旅行気分に浸れたり、作っていると旅行への期待が高まるところが魅力だと感じています。
+また、旅行のしおりを作成することで、より充実した旅程を考えられたり、思い出として残すことができます。
+現状、しおりを作成しようとすると、自分の詰め込みたい情報をすべて書き込めるサービスがないため、自分の思うようにカスタマイズできるしおり作成サービスを作りたいと考えました。
+旅行のしおりは人それぞれ年齢、性別、価値観で全く違うものになると思います。
+それを共有することで新たな発見や次の旅行先の候補との出会いがあるのではないかと考えます。
 
-* Ruby version
+■ ユーザー層について  
+これから旅行に行こうと考えている人：旅行のしおりを作成、旅行先での行動を考える際に参考にするため。  
+旅行に行く人（完全なインドアではない人）：次の旅行先を考えるときに参考にするため。
 
-* System dependencies
+■サービスの利用イメージ  
+ウェブ上で旅行のしおりを作成できます。
+詳細まで好みに合わせて指定できるので、旅行で必要な情報を漏らさず保存できます。
+また、他のしおりを閲覧することで旅行のアイデアを得たり情報収集をすることができます。
 
-* Configuration
 
-* Database creation
+■ ユーザーの獲得について  
+TwitterやInstagramで専用アカウントを作成し、サービスの概要を投稿しようと考えています。
 
-* Database initialization
+■ サービスの差別化ポイント・推しポイント  
+より詳細（時間、タイトル、場所、URL、詳細、費用、移動時間）をカスタマイズしてしおりを作成できます。
+作成したしおりを共有、閲覧することができます。
 
-* How to run the test suite
+■ 機能候補  
+【MVPリリース】
+  - 会員登録
+  - ログイン
+  - しおり作成
+  - しおり一覧
+  - しおり編集、削除
 
-* Services (job queues, cache servers, search engines, etc.)
 
-* Deployment instructions
 
-* ...
+【本リリース】
+  - 作成しおり一覧
+  - お気に入り登録  
+  - マルチ検索
+  - しおりに位置情報を紐づける
+
+■ 機能の実装方針予定
+  - マルチ検索：Stimulus Autocomplete（Rails7 ）
+  - しおりに位置情報を紐づける：Google Maps Platform
+
+■ 画面遷移図  
+https://www.figma.com/proto/86rdOMyG7xWz5tITzG5LwL/%E7%94%BB%E9%9D%A2%E9%81%B7%E7%A7%BB%E5%9B%B3?node-id=20-3&t=3jHAWM9Bcs6mDsWX-0&scaling=min-zoom&content-scaling=fixed&page-id=0%3A1
+
+■ ER図  
+https://i.gyazo.com/11254723141ac98d0a9fc4d55f034b45.png
