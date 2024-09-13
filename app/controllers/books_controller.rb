@@ -28,7 +28,7 @@ class BooksController < ApplicationController
   def edit
     @book = current_user.books.find(params[:id])
   end
-  
+
   def update
     @book = current_user.books.find(params[:id])
     if @book.update(book_params)
@@ -49,8 +49,8 @@ class BooksController < ApplicationController
 
   def book_params
     params.require(:book).permit(
-      :title, :outline_title, :outline_body, :is_public, 
-      plans_attributes: [:id, :date, :title, :start_time, :end_time, :icon, :location, :location_url, :detail, :memo, :cost, :cost_display_per, :cost_display_total, :_destroy]
+      :title, :outline_title, :outline_body, :is_public,
+      plans_attributes: [ :id, :date, :title, :start_time, :end_time, :icon, :location, :location_url, :detail, :memo, :cost, :cost_display_per, :cost_display_total, :_destroy ]
       )
   end
 end
