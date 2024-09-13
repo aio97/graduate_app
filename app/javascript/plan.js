@@ -1,7 +1,7 @@
 document.addEventListener("DOMContentLoaded", function() {
   const addPlanButton = document.getElementById("add-plan-button");
   const planContainer = document.getElementById("add-container");
-  let planIndex = 0;
+  let planIndex = document.querySelectorAll('.plan-form').length;
 
   function addPlan() {
     const planHtml = `
