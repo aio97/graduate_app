@@ -38,7 +38,7 @@ class BooksController < ApplicationController
       render :edit, status: :unprocessable_entity
     end
   end
-  
+
   def destroy
     book = current_user.books.find(params[:id])
     book.destroy!
