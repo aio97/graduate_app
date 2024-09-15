@@ -6,11 +6,11 @@ ja:
       plan: プラン
     attributes:
       user:
-        email: メールアドレス
+        email: メールアドレス*
         gender: 性別
         age_group: 年代
-        password: パスワード
-        password_confirmation: パスワード確認
+        password: パスワード*
+        password_confirmation: パスワード確認*
       book:
         title: タイトル
         image: 背景
