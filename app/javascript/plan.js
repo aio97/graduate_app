@@ -1,7 +1,10 @@
-document.addEventListener("DOMContentLoaded", function() {
+document.addEventListener("turbo:load", function() {
   const addPlanButton = document.getElementById("add-plan-button");
   const planContainer = document.getElementById("add-container");
-  let planIndex = document.querySelectorAll('.plan-form').length;
+  let planIndex = document.querySelectorAll('.plan').length;
+
+  if (!addPlanButton) { return false; }
+  if (!planContainer) { return false; }
 
   function addPlan() {
     const planHtml = `
@@ -20,7 +23,7 @@ document.addEventListener("DOMContentLoaded", function() {
               <input type="time" name="book[plans_attributes][${planIndex}][start_time]" class="form-control" />
             </div>
             <div class="col-md-9 mb-3">
-              <textarea name="book[plans_attributes][${planIndex}][detail]" class="form-control" placeholder="詳細"></textarea>
+              <textarea name="book[plans_attributes][${planIndex}][detail]" class="form-control" placeholder="詳細" ></textarea>
             </div>
           </div>
         </div>
