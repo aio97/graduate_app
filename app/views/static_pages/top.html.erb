@@ -1,16 +1,22 @@
 <div class="container">
   <div class="row">
-    <div class="col-10 mx-auto my-5 pt-4 text-center">
-      <div class="mb-5">
-        <h3>自分だけの特別なしおりを作ろう！</h3>
+    <div class="col-10 mx-auto my-5 pt-4 d-flex justify-content-center align-items-center">
+      <div class="col-lg-6">
+        <%= image_tag "map.png", width: "500" %>
       </div>
-      <div class="mb-5">
-        「私のしおり」はカスタマイズしながら旅行のしおりを作成できるサービスです
-        <br>
-        自分の欲しい情報だけを詰めて旅行への準備を始めましょう！
-      </div>
+      <div class="col-lg-6 text-center align-items-center">
+        <div class="mb-5">
+          <h3>自分だけの特別なしおりを作ろう！</h3>
+        </div>
+        <div class="mb-5">
+          「私のしおり」はカスタマイズしながら旅行のしおりを作成できるサービスです
+          <br>
+          自分の欲しい情報だけを詰めて旅行への準備を始めましょう！
+        </div>
 
-      <%= link_to "新規登録をしてしおりを作る", login_path, class: "btn btn-primary btn-lg" %>
+        <%= link_to "新規登録をしてしおりを作る", login_path, class: "btn btn-primary btn-lg" %>
+      </div>
+      </div>
     </div>
 
     <div class="col-10 mx-auto my-5 pt-4 text-center">
