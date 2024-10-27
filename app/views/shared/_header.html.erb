@@ -12,6 +12,7 @@
         </li>
         <li class="nav-item">
           <%= link_to t("header.book_index"), books_path, class: "nav-link" %>
+        </li>
         <li class='nav-item dropdown dropdown-slide' >
           <%= link_to 'マイページ', "#", class: 'nav-link', data: { bs_toggle: 'dropdown' }, aria: { haspopup: 'true', expanded: 'false' } %>
           <div class='dropdown-menu dropdown-menu-end'>
@@ -25,10 +26,9 @@
             <%= link_to "登録情報", books_path, class: 'dropdown-item' %>
           </div>
           <div class='dropdown-item'>
-            <%= link_to t("header.logout"), logout_path, class: "nav-link", data: { turbo_method: :delete } %>
+            <%= link_to t("header.logout"), logout_path, class: "dropdown-item", data: { turbo_method: :delete } %>
           </div>
-        </div>
-      </li>
+        </li>
       </ul>
     </div>
 </header>
