@@ -19,11 +19,38 @@
       </div>
     </div>
 
-    <div class="col-10 mx-auto my-5 pt-4 text-center">
-      <div class="mb-5">
-        「私のしおり」はカスタマイズしながら旅行のしおりを作成できるサービスです
+    <div class="col-10 mx-auto my-5 pt-4 pb-5 text-center">
+      <div>
+        「私のしおり」はユーザー登録をせずにも楽しめます
          <br>
-        自分の欲しい情報だけを詰めて旅行への準備を始めましょう！
+        いろんなしおりを見て想像の旅行へ行ってみませんか
+      </div>
+
+      <div class="col-12 mx-auto my-4">
+        <div class="row" >
+          <% if @books.present? %>
+            <% @books.each do |book| %>
+              <div class="col-sm-12 col-lg-4 mb-3">
+                <div id="book-id-<%= book.id %>">
+                  <div class="card">
+                    <%= image_tag "book_image.png", class: "card-img-top", width: "300", height: "200" %>
+                    <div class="card-body">
+                      <div class="d-flex justify-content-end">
+                        <h4 class="card-title">
+                          <%= link_to book.title, book_path(book) %>
+                        </h4>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            <% end %>
+          <% else %>
+            <div class="mb-3 text-center">
+              しおりがありません
+            </div>
+          <% end %>
+        </div>
       </div>
 
       <%= link_to "しおりを見てみる", books_path, class: "btn btn-primary btn-lg" %>
