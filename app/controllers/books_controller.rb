@@ -45,6 +45,10 @@ class BooksController < ApplicationController
     redirect_to books_path, success: t("books.destroy.success"), status: :see_other
   end
 
+  def created_index
+    @books = Book.where(user_id: current_user.id)
+  end
+
   private
 
   def book_params
