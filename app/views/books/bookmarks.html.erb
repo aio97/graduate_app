@@ -2,15 +2,14 @@
   <div class="row">
     <div class="col-12 mx-auto my-5 pt-4">
       <div class="row" >
-        <% if @books.present? %>
-          <%= render 'book', {books: @books} %>
+        <% if @bookmark_books.present? %>
+           <%= render 'book', { books: @bookmark_books } %>
         <% else %>
           <div class="mb-3 text-center">
-            しおりがありません
+            ブックマークしているしおりはありません
           </div>
         <% end %>
-        <%= paginate @books, theme: 'bootstrap-5' %>
       </div>
     </div>
   </div>
-</div> 
+</div>

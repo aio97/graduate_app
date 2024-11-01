@@ -2,7 +2,7 @@ class BooksController < ApplicationController
   skip_before_action :require_login, only: %i[index]
 
   def index
-    @books = Book.where(is_public: true)
+    @books = Book.where(is_public: true).page(params[:page]).per(15)
   end
 
   def new
@@ -46,7 +46,11 @@ class BooksController < ApplicationController
   end
 
   def created_index
-    @books = Book.where(user_id: current_user.id)
+    @books = Book.where(user_id: current_user.id).page(params[:page]).per(15)
+  end
+
+  def bookmarks
+    @bookmark_books = current_user.bookmark_books.includes(:user)
   end
 
   private

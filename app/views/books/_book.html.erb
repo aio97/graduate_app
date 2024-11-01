@@ -1,0 +1,25 @@
+<% books.each do |book| %>
+  <div class="col-sm-12 col-lg-4 mb-3">
+    <div id="book-id-<%= book.id %>">
+      <div class="card">
+        <%= image_tag "book_image.png", class: "card-img-top", width: "300", height: "200" %>
+        <div class="card-img-overlay d-flex justify-content-end">
+	        <% unless current_user.own?(book) %>
+	          <% if current_user.bookmark?(book) %>
+					    <%= render 'unbookmark', { book: book } %>
+					  <% else %>
+					    <%= render 'bookmark', { book: book } %>
+					  <% end %>
+	        <% end %>
+	      </div>
+        <div class="card-body">
+          <div class="d-flex justify-content-end">
+            <h4 class="card-title">
+              <%= link_to book.title, book_path(book) %>
+            </h4>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+<% end %>

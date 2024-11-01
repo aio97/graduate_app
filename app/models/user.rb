@@ -2,6 +2,8 @@ class User < ApplicationRecord
   authenticates_with_sorcery!
 
   has_many :books, dependent: :destroy
+  has_many :bookmarks, dependent: :destroy
+  has_many :bookmark_books, through: :bookmarks, source: :book
 
   validates :password, length: { minimum: 8 }, if: -> { new_record? || changes[:crypted_password] }
   validates :password, confirmation: true, if: -> { new_record? || changes[:crypted_password] }
@@ -13,5 +15,17 @@ class User < ApplicationRecord
 
   def own?(object)
     self.id == object.user_id
+  end
+
+  def bookmark(book)
+    bookmark_books << book
+  end
+  
+  def unbookmark(book)
+    bookmark_books.destroy(book)
+  end
+  
+  def bookmark?(book)
+    bookmark_books.include?(book)
   end
 end
