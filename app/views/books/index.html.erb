@@ -1,24 +1,9 @@
 <div class="container">
   <div class="row">
-    <div class="col-12 mx-auto my-5 pt-4">
+    <div class="col-12 mx-auto my-5 pt-4 ">
       <div class="row" >
         <% if @books.present? %>
-           <% @books.each do |book| %>
-            <div class="col-sm-12 col-lg-4 mb-3">
-              <div id="book-id-<%= book.id %>">
-                <div class="card">
-                  <%= image_tag "book_image.png", class: "card-img-top", width: "300", height: "200" %>
-                  <div class="card-body">
-                    <div class="d-flex justify-content-end">
-                      <h4 class="card-title">
-                        <%= link_to book.title, book_path(book) %>
-                      </h4>
-                    </div>
-                  </div>
-                </div>
-              </div>
-            </div>
-          <% end %>
+          <%= render 'book', {books: @books} %>
         <% else %>
           <div class="mb-3 text-center">
             しおりがありません

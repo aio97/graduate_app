@@ -49,6 +49,10 @@ class BooksController < ApplicationController
     @books = Book.where(user_id: current_user.id).page(params[:page]).per(15)
   end
 
+  def bookmarks
+    @bookmark_books = current_user.bookmark_books.includes(:user)
+  end
+
   private
 
   def book_params
