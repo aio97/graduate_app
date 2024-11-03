@@ -1,5 +1,5 @@
 class BooksController < ApplicationController
-  skip_before_action :require_login, only: %i[index]
+  skip_before_action :require_login, only: %i[index show]
 
   def index
     @books = Book.where(is_public: true).page(params[:page]).per(15)

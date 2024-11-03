@@ -20,11 +20,11 @@ class User < ApplicationRecord
   def bookmark(book)
     bookmark_books << book
   end
-  
+
   def unbookmark(book)
     bookmark_books.destroy(book)
   end
-  
+
   def bookmark?(book)
     bookmark_books.include?(book)
   end

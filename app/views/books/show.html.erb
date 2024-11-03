@@ -14,15 +14,17 @@
         </div>
         <div class="position-absolute bottom-0">
           <div class="container pe-3 pb-3 text-end">
-            <% if current_user.own?(@book) %>
-              <div class="ms-auto">
-                <%= link_to edit_book_path(@book), id: "button-edit-#{@book.id}" do %>
-                  <i class="bi bi-pencil-fill icon-lg"></i>
-                <% end %>
-                <%= link_to book_path(@book), id: "button-delete-#{@book.id}", data: { turbo_method: :delete, turbo_confirm: t("books.show.delete_confirm") } do %>
-                  <i class="bi bi-trash-fill icon-lg"></i>
-                <% end %>
-              </div>
+            <% if logged_in? %>
+              <% if current_user.own?(@book) %>
+                <div class="ms-auto">
+                  <%= link_to edit_book_path(@book), id: "button-edit-#{@book.id}" do %>
+                    <i class="bi bi-pencil-fill icon-lg"></i>
+                  <% end %>
+                  <%= link_to book_path(@book), id: "button-delete-#{@book.id}", data: { turbo_method: :delete, turbo_confirm: t("books.show.delete_confirm") } do %>
+                    <i class="bi bi-trash-fill icon-lg"></i>
+                  <% end %>
+                </div>
+              <% end %>
             <% end %>
           </div>
         </div>
