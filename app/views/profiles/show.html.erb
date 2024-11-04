@@ -7,16 +7,20 @@
           <td><%= current_user.email %></td>
         </tr>
         <tr>
+          <th scope="row"><%= User.human_attribute_name(:password) %></th>
+          <td>--------</td>
+        </tr>
+        <tr>
         <th scope="row"><%= User.human_attribute_name(:gender) %></th>
-          <td><%= current_user.gender %></td>
+          <td><%= current_user.gender_i18n %></td>
         </tr>
         <tr>
           <th scope="row"><%= User.human_attribute_name(:age_group) %></th>
           <td><%= current_user.age_group %></td>
         </tr>
       </table>
-      <div class="text-center">
-        <%= link_to "編集", edit_profile_path, class: "btn btn-primary" %>
+      <div class="pt-3 text-center">
+        <%= link_to "編集", edit_profile_path, class: "btn btn-primary btn-lg" %>
       </div>
     </div>
   </div>
