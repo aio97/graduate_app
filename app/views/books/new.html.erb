@@ -28,12 +28,28 @@
 	                <%= plan_form.text_field :title, class: "form-control", placeholder: "タイトル" %>
                 </div>
               </div>
-              <div class="row">
-                <div class="col-md-3 mb-3">
+              <div class="row d-flex justify-content-between">
+                <div class="col-md-2 mb-3">
                   <%= plan_form.time_field :start_time, class: "form-control" %>
                 </div>
 	              <div class="col-md-9 mb-3">
+	                <%= plan_form.text_field :location, class: "form-control", placeholder: "場所" %>
+                </div>
+              </div>
+              <div class="row">
+                <div class="col-md-1 mb-3 text-end">
+                  ～
+                </div>
+                <div class="col-md-3 mb-3">
+                  ~<%= plan_form.time_field :end_time, class: "form-control" %>
+                </div>
+	              <div class="col-md-9 mb-3">
 	                <%= plan_form.text_area :detail, class: "form-control", placeholder: "詳細" %>
+                </div>
+              </div>
+              <div class="row d-flex justify-content-end">
+	              <div class="col-md-9 mb-3">
+	                <%= plan_form.text_area :memo, class: "form-control", placeholder: "メモ（公開されません）" %>
                 </div>
               </div>
 	          </div>
