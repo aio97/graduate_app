@@ -12,9 +12,14 @@
             <%= f.label :outline_title %>
             <%= f.text_field :outline_title, class: "form-control" %>
           </div>
-          <div class="mb-4">
+          <div class="mb-3">
             <%= f.label :outline_body %>
             <%= f.text_area :outline_body, class: "form-control" %>
+          </div>
+          <div class="mb-4">
+            <%= f.label :image %>
+            <%= f.file_field :image, class: "form-control", accept: 'image/*' %>
+            <%= f.hidden_field :image_cache %>
           </div>
         </div>
         <div class="row">
@@ -28,8 +33,8 @@
 	                <%= plan_form.text_field :title, class: "form-control", placeholder: "タイトル" %>
                 </div>
               </div>
-              <div class="row d-flex justify-content-between">
-                <div class="col-md-2 mb-3">
+              <div class="row">
+                <div class="col-md-3 mb-3">
                   <%= plan_form.time_field :start_time, class: "form-control" %>
                 </div>
 	              <div class="col-md-9 mb-3">
@@ -52,6 +57,12 @@
 	                <%= plan_form.text_area :memo, class: "form-control", placeholder: "メモ（公開されません）" %>
                 </div>
               </div>
+              <div class="text-end">
+                <%= link_to plan_path(plan_form.object), data: { turbo_method: :delete, turbo_confirm: "このプランを削除しますか？" } do %>
+                <i class="bi bi-trash-fill icon-lg"></i>
+              </div>
+            <% end %>
+      </div>
 	          </div>
           <% end %>
 

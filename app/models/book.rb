@@ -9,4 +9,6 @@ class Book < ApplicationRecord
   has_many :bookmarks, dependent: :destroy
 
   accepts_nested_attributes_for :plans, allow_destroy: true
+
+  mount_uploader :image, BookImageUploader
 end
