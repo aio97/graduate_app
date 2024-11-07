@@ -23,7 +23,23 @@ document.addEventListener("turbo:load", function() {
               <input type="time" name="book[plans_attributes][${planIndex}][start_time]" class="form-control" />
             </div>
             <div class="col-md-9 mb-3">
+              <input type="text" name="book[plans_attributes][${planIndex}][location]" class="form-control" placeholder="場所" />
+            </div>
+          </div>
+          <div class="row d-flex justify-content-end">
+            <div class="col-md-1 mb-3 text-end">
+              ～
+            </div>
+            <div class="col-md-2 mb-3">
+              <input type="time" name="book[plans_attributes][${planIndex}][end_time]" class="form-control" />
+            </div>
+            <div class="col-md-9 mb-3">
               <textarea name="book[plans_attributes][${planIndex}][detail]" class="form-control" placeholder="詳細" ></textarea>
+            </div>
+          </div>
+          <div class="row d-flex justify-content-end">
+            <div class="col-md-9 mb-3">
+              <textarea name="book[plans_attributes][${planIndex}][memo]" class="form-control" placeholder="メモ（公開されません）" ></textarea>
             </div>
           </div>
         </div>

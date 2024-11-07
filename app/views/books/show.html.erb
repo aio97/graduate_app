@@ -1,7 +1,7 @@
 <div class="container">
   <div class="row">
     <div class="col-10 mx-auto my-5 py-4">
-      <div class="row book-cover position-relative" style="background-image: url('<%= asset_path('book_image.png') %>'); height: 600px; background-size: cover; background-position: center;">
+      <div class="row book-cover position-relative" style="background-image: url('<%= @book.image_url %>'); height: 600px; background-size: cover; background-position: center;">
         <div class="position-absolute top-50 start-50 translate-middle">
           <div class="col-11 mx-auto my-5 text-center display-1">
             <%= @book.title %>
@@ -40,17 +40,30 @@
                 </div>
                 <div class="col-md-9">
                   <div class="row">
-                    <div class="col-md-3 mb-3 fs-4">
+                    <div class="col-md-3 fs-4">
                       <%= plan.start_time.strftime("%H:%M") if plan.start_time.present? %>
                     </div>
-                    <div class="col-md-9 mb-3 fs-4">
+                    <div class="col-md-9 fs-4">
                       <%= plan.title if plan.title.present? %>
                     </div>
                   </div>
                   <div class="row">
-                    <div class="col-md-9 mb-3 offset-md-3 fs-4">
+                    <div class="col-md-3 mb-2 fs-5">
+                      <%= plan.end_time.strftime("~ %H:%M") if plan.end_time.present? %>
+                    </div>
+                    <div class="col-md-9 mb-2 fs-5">
+                      <%= plan.location if plan.location.present? %>
+                    </div>
+                  </div>
+                  <div class="row">
+                    <div class="col-md-9 mb-3 offset-md-3 fs-5">
                       <%= plan.detail if plan.detail.present? %>
                     </div>
+                    <% if @book.user_id == current_user.id %>
+                      <div class="col-md-9 mb-3 offset-md-3 fs-5">
+                        <%= plan.memo if plan.memo.present? %>
+                      </div>
+                    <% end %>
                   </div>
                 </div>
               </div>

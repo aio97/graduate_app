@@ -2,8 +2,8 @@
   <div class="col-sm-12 col-lg-4 mb-3">
     <div id="book-id-<%= book.id %>">
       <div class="card">
-        <%= image_tag "book_image.png", class: "card-img-top", width: "300", height: "200" %>
-        <div class="card-img-overlay d-flex justify-content-end">
+        <%= image_tag book.image_url, class: "card-img-top", width: "300", height: "200" %>
+        <div class="card-img-overlay d-flex justify-content-end z-1">
 	        <% if logged_in? %>
             <% unless current_user.own?(book) %>
               <% if current_user.bookmark?(book) %>
@@ -14,7 +14,7 @@
             <% end %>
           <% end %>
 	      </div>
-        <div class="card-body">
+        <div class="card-body z-2">
           <div class="d-flex justify-content-end">
             <h4 class="card-title">
               <%= link_to book.title, book_path(book) %>
