@@ -24,7 +24,7 @@
         </div>
         <div class="row">
           <%= f.fields_for :plans do |plan_form| %>
-            <div class="plan mb-3 px-2 py-2 border border-primary-subtle">
+            <div class="plan mb-3 px-2 py-2 border border-primary-subtle sortable-handle">
               <div class="row">
                 <div class="col-md-3 mb-3">
                   <%= plan_form.date_field :date, class: "form-control" %>
