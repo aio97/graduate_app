@@ -1,19 +1,18 @@
 <div class="container">
   <div class="row">
     <div class="col-10 mx-auto my-5 py-4">
-      <div class="row book-cover position-relative" style="background-image: url('<%= asset_path('book_image') %>'); height: 600px; background-size: cover; background-position: center;">
-        <div class="position-absolute top-50 start-50 translate-middle">
-          <div class="col-11 mx-auto my-5 text-center display-1">
+      <div class="card">
+        <%= image_tag @book.image_url, class: "card-img-top", height: "600" %>
+        <div class="card-img-overlay d-flex flex-column">
+          <div class="my-3 text-center display-1 mx-auto my-auto">
             <%= @book.title %>
           </div>
-          <div class="col-10 mx-auto fs-4">
+          <div class="col-8 fs-4 mx-auto">
             <%= @book.outline_title %>
             <br>
             <%= @book.outline_body %>
           </div>
-        </div>
-        <div class="position-absolute bottom-0">
-          <div class="container pe-3 pb-3 text-end">
+          <div class="container pe-3 pb-3 text-end mt-auto ms-auto">
             <% if logged_in? %>
               <% if current_user.own?(@book) %>
                 <div class="ms-auto">
@@ -26,6 +25,7 @@
                 </div>
               <% end %>
             <% end %>
+          </div>
           </div>
         </div>
       </div>
