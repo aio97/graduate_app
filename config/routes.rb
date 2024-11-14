@@ -18,4 +18,7 @@ Rails.application.routes.draw do
   post "login", to: "user_sessions#create"
   delete "logout", to: "user_sessions#destroy"
   get "created_book", to: "books#created_index"
+  get "terms", to: "static_pages#terms"
+  get "privacy", to: "static_pages#privacy"
+  get "contact", to: "static_pages#contact"
 end
