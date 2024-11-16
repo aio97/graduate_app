@@ -1,4 +1,4 @@
-<div class="container">
+<div class="container pb-5">
   <div class="row">
     <div class="col-12 mx-auto my-5 pt-4">
       <div class="row" >
@@ -6,7 +6,7 @@
           <%= render 'book', {books: @books} %>
         <% else %>
           <div class="mb-3 text-center">
-            しおりがありません
+            作成したしおりはありません
           </div>
         <% end %>
         <%= paginate @books, theme: 'bootstrap-5' %>
