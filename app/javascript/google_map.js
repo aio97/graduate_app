@@ -1,27 +1,50 @@
-// Initialize and add the map
-let map;
+var map;
+var markers = [];
 
-async function initMap() {
-  // The location of Uluru
-  const position = { lat: -25.344, lng: 131.031 };
-  // Request needed libraries.
-  //@ts-ignore
-  const { Map } = await google.maps.importLibrary("maps");
-  const { AdvancedMarkerElement } = await google.maps.importLibrary("marker");
+function initMap() {
 
-  // The map, centered at Uluru
-  map = new Map(document.getElementById("map"), {
-    zoom: 4,
-    center: position,
-    mapId: "DEMO_MAP_ID",
+  var target = document.getElementById('target');
+  var centerp = {lat: 35.6811673, lng: 139.7670516};
+
+  map = new google.maps.Map(target, {
+    center: centerp,
+    zoom: 10,
   });
 
-  // The marker, positioned at Uluru
-  const marker = new AdvancedMarkerElement({
-    map: map,
-    position: position,
-    title: "Uluru",
+  // プランのlocationがnilでない場合にピンを立てる
+  <% @book.plans.each do |plan| %>
+    <% if plan.location.present? %>
+      addMarker("<%= plan.location %>");
+    <% end %>
+  <% end %>
+}
+
+// 位置情報を元にマーカーを追加する関数
+function addMarker(location) {
+  var geocoder = new google.maps.Geocoder();
+  
+  geocoder.geocode({ address: location }, function(results, status) {
+    if (status === google.maps.GeocoderStatus.OK) {
+      var latlng = results[0].geometry.location;
+      setMarker(latlng);
+      map.setCenter(latlng); // 最初のピンの位置にマップをセンター
+    } else {
+      console.error('場所が見つかりません: ' + status);
+    }
   });
 }
 
-initMap();
+// マーカーを設定する関数
+function setMarker(location) {
+  var marker = new google.maps.Marker({
+    position: location,
+    map: map,
+  });
+  markers.push(marker); // マーカーを配列に追加
+}
+
+// マーカーをクリアする関数
+function clearMarkers() {
+  markers.forEach(marker => marker.setMap(null));
+  markers = []; // 配列をクリア
+}
