@@ -1,4 +1,6 @@
 Rails.application.routes.draw do
+  get "oauths/oauth"
+  get "oauths/callback"
   mount LetterOpenerWeb::Engine, at: "/letter_opener" if Rails.env.development?
 
   get "plans/destroy"
@@ -21,4 +23,7 @@ Rails.application.routes.draw do
   get "terms", to: "static_pages#terms"
   get "privacy", to: "static_pages#privacy"
   get "contact", to: "static_pages#contact"
+  post "oauth/callback", to: "oauths#callback"
+  get "oauth/callback", to: "oauths#callback"
+  get "oauth/:provider", to: "oauths#oauth", as: :auth_at_provider
 end
