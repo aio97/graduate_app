@@ -1,0 +1,5 @@
+development:
+  line_callback_url: "https://localhost:3000/oauth/callback?provider=line"
+
+production:
+  line_callback_url: "https://watashi-no-shiori.onrender.com/oauth/callback?provider=line"
