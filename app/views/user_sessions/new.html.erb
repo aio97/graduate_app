@@ -15,7 +15,7 @@
         </div>
       <% end %>
 
-      <%= link_to 'Login with Line', '#' %>
+      <%= link_to 'Login with Line', auth_at_provider_path(provider: :line) %>
 
       <div class="text-center">
         <%= link_to t("user_sessions.new.to_register_page"), new_user_path %>
