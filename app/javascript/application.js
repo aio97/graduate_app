@@ -4,5 +4,5 @@ import "./controllers"
 import * as bootstrap from "bootstrap"
 import "./plan"
 import './sortable_plans'
-import "./google_map"
+// import "./google_map"
 ;
