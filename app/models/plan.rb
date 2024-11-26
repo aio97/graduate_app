@@ -7,4 +7,6 @@ class Plan < ApplicationRecord
   validates :cost_display_total, inclusion: { in: [ true, false ] }, allow_nil: true
 
   belongs_to :book
+  geocoded_by :location
+  after_validation :geocode
 end

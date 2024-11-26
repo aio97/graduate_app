@@ -23,7 +23,7 @@ document.addEventListener("turbo:load", function() {
               <input type="time" name="book[plans_attributes][${planIndex}][start_time]" class="form-control" />
             </div>
             <div class="col-md-9 mb-3">
-              <input type="text" name="book[plans_attributes][${planIndex}][location]" class="form-control" placeholder="場所" />
+              <input type="text" name="book[plans_attributes][${planIndex}][location]", id="location",  class="form-control" placeholder="場所" />
             </div>
           </div>
           <div class="row d-flex justify-content-end">

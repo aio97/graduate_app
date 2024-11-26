@@ -10,12 +10,15 @@
           <%= f.label :password %>
           <%= f.password_field :password, class: "form-control" %>
         </div>
-        <div class="mb-2 text-center">
+        <div class="mb-1 text-center">
           <%= f.submit "ログイン", class: "btn btn-primary btn-lg" %>
         </div>
       <% end %>
 
-      <%= link_to 'Login with Line', '#' %>
+      <div class="mb-3 text-center">
+        <%= image_tag "LINE_btn_base", size: "20x20" %>
+        <%= link_to 'LINEでログイン', auth_at_provider_path(provider: :line) %>
+      </div>
 
       <div class="text-center">
         <%= link_to t("user_sessions.new.to_register_page"), new_user_path %>
