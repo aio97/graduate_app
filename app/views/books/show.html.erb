@@ -88,6 +88,15 @@
     };
 
     const map = new google.maps.Map(mapElement, mapOptions);
+
+    <% @book.plans.each do |plan| %>
+      <% if plan.latitude.present? && plan.longitude.present? %>
+        new google.maps.Marker({
+          position: {lat: <%= plan.latitude %>, lng: <%= plan.longitude %>}, 
+          map: map,
+        });
+      <% end %>
+    <% end %>
   }
 </script>
 <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyB-dSTxxqBvNMcdOo9CKpYXPYnAGyUtItw&callback=initMap"></script>
