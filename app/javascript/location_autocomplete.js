@@ -1,4 +1,7 @@
 document.addEventListener("turbo:load", function() {
+    window.google = undefined;
+    initMap();
+
   const inputLocation = document.getElementById('location');
 
   const options = {
@@ -9,7 +12,7 @@ document.addEventListener("turbo:load", function() {
   const autocompleteLocation = new google.maps.places.Autocomplete(inputLocation, options);
 
   autocompleteLocation.addListener('place_changed', function() {
-    const place = autocompleteAddress.getPlace();
+    const place = autocompleteLocation.getPlace();
     inputLocation.value = place.formatted_address;
   });
 });

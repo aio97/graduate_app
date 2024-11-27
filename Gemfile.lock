@@ -119,6 +119,10 @@ GEM
       irb (~> 1.10)
       reline (>= 0.3.8)
     deep_merge (1.2.2)
+    dotenv (3.1.4)
+    dotenv-rails (3.1.4)
+      dotenv (= 3.1.4)
+      railties (>= 6.1)
     drb (2.2.1)
     dry-configurable (1.2.0)
       dry-core (~> 1.0, < 2)
@@ -427,6 +431,7 @@ DEPENDENCIES
   config (= 4.0.0)
   cssbundling-rails
   debug
+  dotenv-rails
   enum_help (= 0.0.19)
   geocoder
   jbuilder

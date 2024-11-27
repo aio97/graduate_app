@@ -15,6 +15,7 @@ Rails.application.routes.draw do
   resources :bookmarks, only: %i[create destroy]
   resource :profile, only: %i[show edit update]
   resources :password_resets, only: %i[new create edit update]
+  resources :contacts, only: %i[new create]
 
   get "login", to: "user_sessions#new"
   post "login", to: "user_sessions#create"
@@ -22,7 +23,6 @@ Rails.application.routes.draw do
   get "created_book", to: "books#created_index"
   get "terms", to: "static_pages#terms"
   get "privacy", to: "static_pages#privacy"
-  get "contact", to: "static_pages#contact"
   post "oauth/callback", to: "oauths#callback"
   get "oauth/callback", to: "oauths#callback"
   get "oauth/:provider", to: "oauths#oauth", as: :auth_at_provider

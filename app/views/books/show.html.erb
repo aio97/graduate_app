@@ -78,25 +78,33 @@
     </div>
   </div>
 </div>
+
 <script>
   function initMap() {
     const mapElement = document.getElementById('map');
+
+    if (!mapElement) {
+      return;
+    }
 
     const mapOptions = {
       center: { lat: 35.6803997, lng: 139.7690174 },
       zoom: 10
     };
-
     const map = new google.maps.Map(mapElement, mapOptions);
+    const plans = <%= raw @book.plans.to_json %>; // RailsでJSONに変換
 
-    <% @book.plans.each do |plan| %>
-      <% if plan.latitude.present? && plan.longitude.present? %>
+    plans.forEach(plan => {
+      if (plan.latitude && plan.longitude) {
         new google.maps.Marker({
-          position: {lat: <%= plan.latitude %>, lng: <%= plan.longitude %>}, 
+          position: { lat: plan.latitude, lng: plan.longitude },
           map: map,
         });
-      <% end %>
-    <% end %>
+      }
+    });
   }
+
+  document.addEventListener("turbo:load", function() {
+    initMap();
+  });
 </script>
-<script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyB-dSTxxqBvNMcdOo9CKpYXPYnAGyUtItw&callback=initMap"></script>
