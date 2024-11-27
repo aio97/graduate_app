@@ -15,7 +15,7 @@ class BookImageUploader < CarrierWave::Uploader::Base
 
   # Provide a default URL as a default if there hasn't been a file uploaded:
   def default_url
-    ActionController::Base.helpers.asset_path('book_image.png')
+    ActionController::Base.helpers.asset_path("book_image.png")
   end
 
   # Process files as they are uploaded:
@@ -33,7 +33,7 @@ class BookImageUploader < CarrierWave::Uploader::Base
   # Add an allowlist of extensions which are allowed to be uploaded.
   # For images you might use something like this:
   def extension_allowlist
-    %w(jpg jpeg gif png)
+    %w[jpg jpeg gif png]
   end
 
   # Override the filename of the uploaded files:

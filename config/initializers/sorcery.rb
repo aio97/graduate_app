@@ -4,7 +4,7 @@
 # Available submodules are: :user_activation, :http_basic_auth, :remember_me,
 # :reset_password, :session_timeout, :brute_force_protection, :activity_logging,
 # :magic_login, :external
-Rails.application.config.sorcery.submodules = [:reset_password, :external]
+Rails.application.config.sorcery.submodules = [ :reset_password, :external ]
 
 # Here you can configure each submodule's features.
 Rails.application.config.sorcery.configure do |config|
@@ -224,7 +224,7 @@ Rails.application.config.sorcery.configure do |config|
   config.line.callback_url = Settings[Rails.env][:line_callback_url]
   config.line.scope = "profile"
   config.line.bot_prompt = "normal"
-  config.line.user_info_mapping = {email: 'email'}
+  config.line.user_info_mapping = { email: "email" }
 
 
   # For information about Discord API

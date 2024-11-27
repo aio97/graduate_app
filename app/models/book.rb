@@ -1,6 +1,6 @@
 class Book < ApplicationRecord
   mount_uploader :image, BookImageUploader
-  
+
   validates :title, presence: true, length: { maximum: 255 }
   validates :outline_title, length: { maximum: 255 }
   validates :outline_body, length: { maximum: 65_535 }
@@ -11,5 +11,4 @@ class Book < ApplicationRecord
   has_many :bookmarks, dependent: :destroy
 
   accepts_nested_attributes_for :plans, allow_destroy: true
-
 end

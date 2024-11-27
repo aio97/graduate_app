@@ -28,6 +28,9 @@ ja:
         plan_detail: 詳細
         plan_memo: メモ
         plan_cost: 費用
+      contact:
+        email: メールアドレス
+        message: お問い合わせ内容
     enums:
       user:
         gender:

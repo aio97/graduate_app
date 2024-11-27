@@ -18,6 +18,7 @@ gem "stimulus-rails"
 gem "cssbundling-rails"
 # Build JSON APIs with ease [https://github.com/rails/jbuilder]
 gem "jbuilder"
+
 # Use Redis adapter to run Action Cable in production
 # gem "redis", ">= 4.0.1"
 
@@ -65,6 +66,7 @@ end
 
 gem "kaminari", "1.2.2"
 gem "bootstrap5-kaminari-views"
-gem 'carrierwave', "2.2.2"
+gem "carrierwave", "2.2.2"
 gem "config", "4.0.0"
 gem "geocoder"
+gem "dotenv-rails"
