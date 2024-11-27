@@ -38,7 +38,7 @@ gem "bootsnap", require: false
 # gem "image_processing", "~> 1.2"
 
 gem "sorcery", "0.16.3"
-gem "rails-i18n", "~> 7.0.0"
+gem "rails-i18n", "~> 7.0.10"
 gem "enum_help", "0.0.19"
 
 group :development, :test do
