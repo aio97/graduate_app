@@ -1,10 +1,10 @@
 <div class="container pb-5">
   <div class="row">
-    <div class="col-10 mx-auto my-5 pt-4 d-flex justify-content-center align-items-center">
-      <div class="col-lg-6">
-        <%= image_tag "map.png", width: "500" %>
+    <div class="col-10 mx-auto my-5 pt-4 d-flex justify-content-center align-items-center flex-column flex-md-row">
+      <div class="col-md-6 col-12">
+        <%= image_tag "map.png", width: "100%" %>
       </div>
-      <div class="col-lg-6 text-center align-items-center">
+      <div class="col-md-6 col-12 text-center align-items-center">
         <div class="mb-5">
           <h3>自分だけの特別なしおりを作ろう！</h3>
         </div>
@@ -16,18 +16,17 @@
 
         <%= link_to "新規登録をしてしおりを作る", new_user_path, class: "btn btn-primary btn-lg" %>
       </div>
-      </div>
     </div>
 
     <div class="py-5">
       <div class="p-1 bg-primary text-white text-center">
         <h3>しおり作成方法</h3>
       </div>
-      <div class="col-10 mx-auto my-1 pt-4 d-flex">
-        <div class="col-lg-6">
+      <div class="col-10 mx-auto my-1 pt-4 d-flex flex-column flex-lg-row">
+        <div class="col-lg-6 col-12">
           <%= image_tag "map.png", width: "100%" %>
         </div>
-        <div class="col-lg-6">
+        <div class="col-lg-6 col-12">
           <div class="mt-4 mb-3 border-bottom border-primary">
             <h5>しおりの表紙部分を作成します</h5>
           </div>
@@ -38,23 +37,22 @@
               <li>タイトル</li>
               <li>概要</li>
               <li>背景</li>
-            <lo>
+            </lo>
           </div>
-          まずは旅行のタイトルを決めましょう！
-          <br>
-          <br>
-          概要は旅行についての情報がおすすめです（例）目的、持ち物
-          <br>
-          背景はしおりを表示する際の背景画像を指定できます      
-
+            まずは旅行のタイトルを決めましょう！
+            <br>
+            <br>
+            概要は旅行についての情報がおすすめです（例）目的、持ち物
+            <br>
+            背景はしおりを表示する際の背景画像を指定できます      
           </div>
         </div>
       </div>
-      <div class="col-10 mx-auto my-1 pt-4 d-flex">
-        <div class="col-lg-6">
-          <%= image_tag "map.png", width: "500" %>
+      <div class="col-10 mx-auto my-1 pt-4 d-flex flex-column flex-lg-row">
+        <div class="col-lg-6 col-12">
+          <%= image_tag "map.png", width: "100%" %>
         </div>
-        <div class="col-lg-6">
+        <div class="col-lg-6 col-12">
           <div class="mt-4 mb-3 border-bottom border-primary">
             <h5>「プラン追加」で旅行のプラン部分を追加することできます</h5>
           </div>
@@ -69,29 +67,31 @@
                 <li>場所</li>
                 <li>詳細</li>
                 <li>メモ</li>
-              <lo>
+              </lo>
             </div>
-              メモは自分以外には表示されません
-              <br>
-              詳細とメモを使い分けることで個人情報を守れます
-              <br>
-              場所を入力すると、しおりを表示した際にマップ上でマーカーを確認できます
+            メモは自分以外には表示されません
+            <br>
+            詳細とメモを使い分けることで個人情報を守れます
+            <br>
+            場所を入力すると、しおりを表示した際にマップ上でマーカーを確認できます
           </div>
         </div>
       </div>
-      <div class="col-10 mx-auto my-1 pt-4 d-flex">
-        <div class="col-lg-6">
-          <%= image_tag "map.png", width: "500" %>
+      <div class="col-10 mx-auto my-1 pt-4 pb-5 d-flex flex-column flex-lg-row">
+        <div class="col-lg-6 col-12">
+          <%= image_tag "map.png", width: "100%" %>
         </div>
-        <div class="col-lg-6">
+        <div class="col-lg-6 col-12">
           <div class="mt-4 mb-3 border-bottom border-primary">
             <h5>公開を設定</h5>
           </div>
-              しおりを公開するかチェックボックスを選択してください
-              <br>
-              チェックを入れない場合は自分以外には表示されません
-          </div>
+          しおりを公開するかチェックボックスを選択してください
+          <br>
+          チェックを入れない場合は自分以外には表示されません
         </div>
+      </div>
+      <div class="p-1 bg-primary text-white text-center">
+        <h3>　</h3>
       </div>
     </div>
 

@@ -1,5 +1,5 @@
 <% books.each do |book| %>
-  <div class="col-sm-12 col-lg-4 mb-3">
+  <div class="col-md-6 col-lg-4 mb-3">
     <div id="book-id-<%= book.id %>">
       <div class="card">
         <%= image_tag book.image_url, class: "card-img-top", width: "300", height: "200" %>
