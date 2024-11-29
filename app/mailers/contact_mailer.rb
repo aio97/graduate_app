@@ -4,5 +4,5 @@ class ContactMailer < ApplicationMailer
     mail(to: contact.email,
          bcc: ENV["TOMAIL"],
          subject: "お問い合わせを受け付けました")
-  end 
+  end
 end
