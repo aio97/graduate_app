@@ -94,7 +94,7 @@ Rails.application.configure do
 }
 
 config.action_mailer.perform_deliveries = true
-config.action_mailer.default_url_options = { host: "watashi-no-shiori.onrender.com" }
+config.action_mailer.default_url_options = { host: "watashi-no-shiori.com" }
 
   # Enable locale fallbacks for I18n (makes lookups for any locale fall back to
   # the I18n.default_locale when a translation cannot be found).
@@ -113,4 +113,5 @@ config.action_mailer.default_url_options = { host: "watashi-no-shiori.onrender.c
   # ]
   # Skip DNS rebinding protection for the default health check endpoint.
   # config.host_authorization = { exclude: ->(request) { request.path == "/up" } }
+    config.host << "watashi-no-shiori.com"
 end
