@@ -4,6 +4,17 @@
     <title><%= content_for(:title) || "私のしおり" %></title>
     <meta name="viewport" content="width=device-width,initial-scale=1">
     <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta property="og:title" content="私のしおり">
+    <meta property="og:type" content="website">
+    <meta property="og:description" content="私のしおりは、旅行しおり作成サービスです">
+    <meta property="og:url" content="https://watashi-no-shiori.com/">
+    <meta property="og:site_name" content="私のしおり">
+    <meta property="og:image" content="">
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="私のしおり">
+    <meta name="twitter:description" content="私のしおりは、旅行しおり作成サービスです">
+    <meta name="twitter:image" content="<%= asset_path('ogp_image.png') %>"
+
     <%= csrf_meta_tags %>
     <%= csp_meta_tag %>
 
