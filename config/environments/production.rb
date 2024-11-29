@@ -113,5 +113,5 @@ config.action_mailer.default_url_options = { host: "watashi-no-shiori.com" }
   # ]
   # Skip DNS rebinding protection for the default health check endpoint.
   # config.host_authorization = { exclude: ->(request) { request.path == "/up" } }
-    config.host << "watashi-no-shiori.com"
+    config.hosts << "watashi-no-shiori.com"
 end
