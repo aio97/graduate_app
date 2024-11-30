@@ -50,6 +50,8 @@ group :development, :test do
 
   # Omakase Ruby styling [https://github.com/rails/rubocop-rails-omakase/]
   gem "rubocop-rails-omakase", require: false
+
+  gem "rubocop"
 end
 
 group :development do
@@ -70,3 +72,5 @@ gem "carrierwave", "2.2.2"
 gem "config", "4.0.0"
 gem "geocoder"
 gem "dotenv-rails"
+gem "rspec-rails"
+gem "factory_bot_rails"
