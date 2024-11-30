@@ -84,17 +84,17 @@ Rails.application.configure do
 
   config.action_mailer.delivery_method = :smtp
   config.action_mailer.smtp_settings = {
-  address:              'smtp.gmail.com',
+  address:              "smtp.gmail.com",
   port:                 587,
-  domain:               'gmail.com',
-  user_name:            ENV['SMTP_USERNAME'],
-  password:             ENV['SMTP_PASSWORD'],
-  authentication:       'plain',
+  domain:               "gmail.com",
+  user_name:            ENV["SMTP_USERNAME"],
+  password:             ENV["SMTP_PASSWORD"],
+  authentication:       "plain",
   enable_starttls_auto: true
-}
+  }
 
-config.action_mailer.perform_deliveries = true
-config.action_mailer.default_url_options = { host: "watashi-no-shiori.com" }
+  config.action_mailer.perform_deliveries = true
+  config.action_mailer.default_url_options = { host: "watashi-no-shiori.com" }
 
   # Enable locale fallbacks for I18n (makes lookups for any locale fall back to
   # the I18n.default_locale when a translation cannot be found).
@@ -106,6 +106,8 @@ config.action_mailer.default_url_options = { host: "watashi-no-shiori.com" }
   # Do not dump schema after migrations.
   config.active_record.dump_schema_after_migration = false
 
+  config.action_controller.raise_on_open_redirects = false
+
   # Enable DNS rebinding protection and other `Host` header attacks.
   # config.hosts = [
   #   "example.com",     # Allow requests from example.com
@@ -113,5 +115,5 @@ config.action_mailer.default_url_options = { host: "watashi-no-shiori.com" }
   # ]
   # Skip DNS rebinding protection for the default health check endpoint.
   # config.host_authorization = { exclude: ->(request) { request.path == "/up" } }
-    config.hosts << "watashi-no-shiori.com"
+  config.hosts << "watashi-no-shiori.com"
 end

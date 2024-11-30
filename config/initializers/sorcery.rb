@@ -221,7 +221,8 @@ Rails.application.config.sorcery.configure do |config|
 
   config.line.key = Rails.application.credentials.dig(:line, :channel_id)
   config.line.secret = Rails.application.credentials.dig(:line, :channel_secret)
-  config.line.callback_url = Settings[Rails.env][:line_callback_url]
+  config.line.callback_url = "https://localhost:30sorcery00/oauth/callback?provider=line"
+  config.line.callback_url = "https://watashi-no-shiori.com/oauth/callback?provider=line"
   config.line.scope = "profile"
   config.line.bot_prompt = "normal"
   config.line.user_info_mapping = { email: "email" }

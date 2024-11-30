@@ -1,0 +1,2 @@
+sorcery:
+  line_callback_url: "https://watashi-no-shiori.com/oauth/callback?provider=line"
