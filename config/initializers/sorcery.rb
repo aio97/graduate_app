@@ -225,7 +225,7 @@ Rails.application.config.sorcery.configure do |config|
   config.line.callback_url = "https://watashi-no-shiori.com/oauth/callback?provider=line"
   config.line.scope = "profile"
   config.line.bot_prompt = "normal"
-  config.line.user_info_mapping = { email: "email" }
+  config.line.user_info_mapping = { email: "userID" }
 
 
   # For information about Discord API
