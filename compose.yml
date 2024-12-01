@@ -32,6 +32,25 @@ services:
     depends_on:
       db:
         condition: service_healthy
+
+# app:
+#   build:
+#     context: .
+#     dockerfile: Dockerfile.dev
+#   ports:
+#     - "3000:3000"
+#   volumes:
+#     - .:/app
+#   environment:
+#     - RAILS_ENV=test
+#     - SELENIUM_REMOTE_URL=http://selenium_chrome:4444/wd/hub
+#   depends_on:
+#     - selenium_chrome:
+
+  selenium_chrome:
+    image: selenium/standalone-chrome:latest
+    ports:
+      - "4444:4444"
 volumes:
   bundle_data:
   postgresql_data:
