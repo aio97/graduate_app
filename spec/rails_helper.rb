@@ -38,6 +38,25 @@ rescue ActiveRecord::PendingMigrationError => e
   abort e.to_s.strip
 end
 RSpec.configure do |config|
+  Webdrivers::Chromedriver.required_version = '114.0.5735.90'
+
+  config.before(:each, type: :system) do
+    driven_by :selenium, using: :headless_chrome, options: {
+      browser: :remote,
+      url: 'http://selenium_chrome:4444/wd/hub',
+      options: Selenium::WebDriver::Chrome::Options.new.tap { |opt|
+        # opt.add_argument('--headless')
+        opt.add_argument('--no-sandbox')
+        opt.add_argument('--disable-dev-shm-usage')
+        opt.add_argument('--disable-gpu')
+      }
+    }
+    Capybara.server_host = IPSocket.getaddress(Socket.gethostname)
+    Capybara.server_port = 4444
+    Capybara.app_host = "http://#{Capybara.server_host}:#{Capybara.server_port}"
+    Capybara.ignore_hidden_elements = false
+  end
+
   # Remove this line if you're not using ActiveRecord or ActiveRecord fixtures
   config.fixture_paths = [
     Rails.root.join('spec/fixtures')
@@ -74,14 +93,4 @@ RSpec.configure do |config|
   # config.filter_gems_from_backtrace("gem name")
 
   config.include FactoryBot::Syntax::Methods
-
-  
-  config.before(:each, type: :system) do
-    driven_by :selenium_chrome
-
-    Capybara.server_host = IPSocket.getaddress(Socket.gethostname)
-    Capybara.server_port = 4444
-    Capybara.app_host = "http://#{Capybara.server_host}:#{Capybara.server_port}"
-    Capybara.ignore_hidden_elements = false
-  end
 end

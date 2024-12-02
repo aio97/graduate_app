@@ -19,4 +19,3 @@ class UserSessionsController < ApplicationController
     redirect_to root_path, status: :see_other, success: t("user_sessions.destroy.success")
   end
 end
- 
