@@ -80,31 +80,53 @@
 </div>
 
 <script>
-  function initMap() {
-    const mapElement = document.getElementById('map');
+document.addEventListener("turbo:load", function() {
+  loadGoogleMapsAPI(() => {
+    initializeMap();
+  });
+});
 
-    if (!mapElement) {
-      return;
-    }
+function loadGoogleMapsAPI(callback) {
+  if (window.google && window.google.maps) {
+    callback();
+  } else {
+    window.initMapCallback = callback;
+    const script = document.createElement('script');
+    script.src = `https://maps.googleapis.com/maps/api/js?key=<%= ENV["API_KEY"] %>&libraries=places&callback=initMapCallback`;
+    script.async = true;
+    script.defer = true;
+    document.body.appendChild(script);
+  }
+}
 
-    const mapOptions = {
-      center: { lat: 35.6803997, lng: 139.7690174 },
-      zoom: 10
-    };
-    const map = new google.maps.Map(mapElement, mapOptions);
-    const plans = <%= raw @book.plans.to_json %>; // RailsでJSONに変換
+document.addEventListener("turbo:before-cache", function() {
+  const mapElement = document.getElementById('map');
+  if (mapElement) {
+    mapElement.innerHTML = "";
+  }
+});
 
-    plans.forEach(plan => {
-      if (plan.latitude && plan.longitude) {
-        new google.maps.Marker({
-          position: { lat: plan.latitude, lng: plan.longitude },
-          map: map,
-        });
-      }
-    });
+function initializeMap() {
+  const mapElement = document.getElementById('map');
+  if (!mapElement) {
+    console.error('Map element not found');
+    return;
   }
 
-  document.addEventListener("turbo:load", function() {
-    initMap();
+  const mapOptions = {
+    center: { lat: 35.6803997, lng: 139.7690174 },
+    zoom: 10
+  };
+  const map = new google.maps.Map(mapElement, mapOptions);
+  const plans = <%= raw @book.plans.to_json %>;
+
+  plans.forEach(plan => {
+    if (plan.latitude && plan.longitude) {
+      new google.maps.Marker({
+        position: { lat: plan.latitude, lng: plan.longitude },
+        map: map,
+      });
+    }
   });
+}
 </script>

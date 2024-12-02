@@ -1,5 +1,5 @@
 document.addEventListener("turbo:load", function() {
-    window.google = undefined;
+    if ( window.google && window.google.maps ) {
     initMap();
 
   const inputLocation = document.getElementById('location');
@@ -14,5 +14,5 @@ document.addEventListener("turbo:load", function() {
   autocompleteLocation.addListener('place_changed', function() {
     const place = autocompleteLocation.getPlace();
     inputLocation.value = place.formatted_address;
-  });
+  })};
 });
