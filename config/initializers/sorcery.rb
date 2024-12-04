@@ -221,10 +221,9 @@ Rails.application.config.sorcery.configure do |config|
 
   config.line.key = Rails.application.credentials.dig(:line, :channel_id)
   config.line.secret = Rails.application.credentials.dig(:line, :channel_secret)
-  config.line.callback_url = "https://c5d0-111-237-87-57.ngrok-free.app/oauth/callback?provider=line"
-  config.line.callback_url = "https://watashi-no-shiori.com/oauth/callback?provider=line"
-  config.line.scope = "profile"
-  config.line.bot_prompt = "normal"
+  config.line.callback_url = "https://6de2-111-237-87-57.ngrok-free.app/oauth/callback?provider=line"
+  config.line.scope = "openid"
+  # config.line.bot_prompt = "normal"
   config.line.user_info_mapping = { email: "userID" }
 
 

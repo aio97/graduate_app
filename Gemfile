@@ -74,3 +74,5 @@ gem "geocoder"
 gem "dotenv-rails"
 gem "rspec-rails"
 gem "factory_bot_rails"
+gem "aws-sdk-s3", require: false
+gem "fog-aws"
