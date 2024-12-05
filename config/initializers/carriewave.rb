@@ -16,7 +16,7 @@ CarrierWave.configure do |config|
   # }
   if Rails.env.production? || Rails.env.development? # 開発中もs3使う
     config.storage :fog
-    config.fog_provider = 'fog/aws'
+    # config.fog_provider = 'fog/aws'
     config.fog_directory  = 'watashi-no-shiori'
     config.asset_host = 'https://watashi-no-shiori.s3.amazonaws.com'
     # NOTE: AWS側の設定を変えなくても、この１行の設定でアップロードできた
