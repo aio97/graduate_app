@@ -7,7 +7,8 @@ class OauthsController < ApplicationController
 
   def callback
     provider = auth_params[:provider]
-    redirect_to root_path
+    status = auth_params[:status]
+    Rails.logger.debug "#{status}"
     if @user = login_from(provider)
       redirect_to root_path, notice: "#{provider.titleize}でログインしました"
     else
@@ -17,8 +18,9 @@ class OauthsController < ApplicationController
         auto_login(@user)
         redirect_to root_path, notice: "#{provider.titleize}でログインしました"
       rescue
-        flash.now[:danger] = "#{provider.titleize}でログインできませんでした"
-        render :new, status: :unprocessable_entity
+        # flash.now[:danger] = "#{provider.titleize}でログインできませんでした"
+        # render :new, status: :unprocessable_entity
+        redirect_to root_path, notice: "#{provider.titleize}でログインできませんでした"
       end
     end
   end
