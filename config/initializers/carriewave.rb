@@ -18,7 +18,7 @@ CarrierWave.configure do |config|
     config.storage :fog
     config.fog_provider = 'fog/aws'
     config.fog_directory  = 'watashi-no-shiori'
-    config.asset_host = 'https://s3.amazonaws.com/watashi-no-shiroi'
+    config.asset_host = 'https://watashi-no-shiori.s3.amazonaws.com'
     # NOTE: AWS側の設定を変えなくても、この１行の設定でアップロードできた
     config.fog_public = false # ←コレ
     config.fog_credentials = {
@@ -28,6 +28,7 @@ CarrierWave.configure do |config|
       region: 'ap-southeast-2',
       # path_style: true
     }
+    config.cache_dir = "#{Rails.root}/tmp/uploads"
   else
     config.storage :file
     config.enable_processing = false if Rails.env.test?
