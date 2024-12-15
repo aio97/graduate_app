@@ -3,6 +3,5 @@ import "@hotwired/turbo-rails"
 import "./controllers"
 import * as bootstrap from "bootstrap"
 import "./plan"
-import './sortable_plans'
 import "./location_autocomplete.js"
 ;

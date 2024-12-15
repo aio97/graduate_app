@@ -23,8 +23,9 @@
       </div>
       <div class="row">
         <%= f.fields_for :plans do |plan_form| %>
-          <div class="plan-form mb-3 px-2 py-2 border border-primary-subtle">
+          <div class="plan-form mb-3 px-2 py-2 border border-primary-subtle" data-id="<%= plan_form.object.id %>">
             <%= plan_form.hidden_field :id, value: plan_form.object.new_record? ? nil : plan_form.object.id %>
+            <p>プラン<%= plan_form.object.id %></p>
             <div class="row">
               <div class="col-md-3 mb-3">
                 <%= plan_form.date_field :date, class: "form-control" %>
