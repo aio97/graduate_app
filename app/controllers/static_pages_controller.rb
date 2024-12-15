@@ -1,5 +1,5 @@
 class StaticPagesController < ApplicationController
-  skip_before_action :require_login, only: %i[top]
+  skip_before_action :require_login, only: %i[top terms privacy]
 
   def top
     @books = Book.where(is_public: true).order(created_at: :asc).limit(6)

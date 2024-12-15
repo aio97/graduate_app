@@ -109,7 +109,7 @@
               <div class="col-sm-12 col-lg-4 mb-3">
                 <div id="book-id-<%= book.id %>">
                   <div class="card">
-                    <%= image_tag "book_image.png", class: "card-img-top", width: "300", height: "200" %>
+                    <%= image_tag image_path("backgrounds/#{book.image.presence || 'blue.jpg'}"), class: "card-img-top", width: "300", height: "200" %>
                     <div class="card-body">
                       <div class="d-flex justify-content-end">
                         <h4 class="card-title">
