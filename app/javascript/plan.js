@@ -1,4 +1,4 @@
-document.addEventListener("DOMContentLoaded", function() {
+document.addEventListener("turbo:load", function() {
   const addPlanButton = document.getElementById("add-plan-button");
   const planContainer = document.getElementById("add-container");
  
