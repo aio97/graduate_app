@@ -1,12 +1,21 @@
 document.addEventListener("turbo:load", function() {
   const addPlanButton = document.getElementById("add-plan-button");
   const planContainer = document.getElementById("add-container");
-  let planIndex = document.querySelectorAll('.plan').length;
+ 
+  let maxId = 0;
+  document.querySelectorAll('.plan').forEach(plan => {
+    const planId = parseInt(plan.getAttribute('data-id'), 10);
+    if (planId > maxId) {
+      maxId = planId;
+    }
+  });
 
   if (!addPlanButton) { return false; }
   if (!planContainer) { return false; }
 
   function addPlan() {
+    const newPlanId = maxId + 1;
+
     const planHtml = `
       <div class="plan container pb-3">
         <div class="plan px-2 py-2 border border-primary-subtle">
@@ -46,7 +55,7 @@ document.addEventListener("turbo:load", function() {
       </div>
     `;
     planContainer.insertAdjacentHTML('beforeend', planHtml);
-    planIndex++;
+    maxId = newPlanId;
   }
 
   addPlanButton.addEventListener("click", function() {
