@@ -120,12 +120,34 @@ function initializeMap() {
   const map = new google.maps.Map(mapElement, mapOptions);
   const plans = <%= raw @book.plans.to_json %>;
 
+  // マーカーを管理する配列
+  let markers = [];
+
   plans.forEach(plan => {
+  // locationがnilの場合、latitudeとlongitudeをリセットする
+    if (!plan.location) {
+      plan.latitude = null;
+      plan.longitude = null;
+    }
+
     if (plan.latitude && plan.longitude) {
-      new google.maps.Marker({
+      // 既にマーカーがある場合は削除
+      const existingMarker = markers.find(marker => marker.planId === plan.id);
+      if (existingMarker) {
+        existingMarker.setMap(null);  // マーカーを地図から削除
+      }
+
+      // 新しいマーカーを作成
+      const marker = new google.maps.Marker({
         position: { lat: plan.latitude, lng: plan.longitude },
         map: map,
-      });
+      })
+
+      // マーカーにプランIDを付加
+      marker.planId = plan.id;
+
+      // マーカーを配列に追加
+      markers.push(marker);
     }
   });
 }
