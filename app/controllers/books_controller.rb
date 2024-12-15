@@ -11,7 +11,6 @@ class BooksController < ApplicationController
 
   def create
     @book = current_user.books.build(book_params)
-    logger.debug(@book.plans)
     if @book.save
       redirect_to book_path(@book), success: t("books.create.success")
     else
@@ -57,7 +56,7 @@ class BooksController < ApplicationController
 
   def book_params
     params.require(:book).permit(
-      :title, :outline_title, :outline_body, :is_public, :image, :image_cache,
+      :title, :outline_title, :outline_body, :is_public, :image,
       plans_attributes: [ :id, :date, :title, :start_time, :end_time, :icon, :location, :location_url, :detail, :memo, :cost, :cost_display_per, :cost_display_total, :_destroy, :latitude, :longitude ]
       )
   end
