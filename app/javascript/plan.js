@@ -1,4 +1,4 @@
-document.addEventListener("turbo:load", function() {
+document.addEventListener("DOMContentLoaded", function() {
   const addPlanButton = document.getElementById("add-plan-button");
   const planContainer = document.getElementById("add-container");
  
@@ -17,8 +17,10 @@ document.addEventListener("turbo:load", function() {
     const newPlanId = maxId + 1;
 
     const planHtml = `
-      <div class="plan container pb-3">
+      <div class="plan container pb-3" data-id="${newPlanId}">
         <div class="plan px-2 py-2 border border-primary-subtle">
+        ${maxId}
+          プラン${newPlanId}
           <div class="row">
             <div class="col-md-3 mb-3">
               <input type="date" name="book[plans_attributes][${newPlanId}][date]" class="form-control" />
@@ -32,7 +34,7 @@ document.addEventListener("turbo:load", function() {
               <input type="time" name="book[plans_attributes][${newPlanId}][start_time]" class="form-control" />
             </div>
             <div class="col-md-9 mb-3">
-              <input type="text" name="book[plans_attributes][${newPlanId}][location]", id="location",  class="form-control" placeholder="場所" />
+              <input type="text" name="book[plans_attributes][${newPlanId}][location]" id="location",  class="form-control" placeholder="場所" />
             </div>
           </div>
           <div class="row d-flex justify-content-end">
@@ -60,5 +62,6 @@ document.addEventListener("turbo:load", function() {
 
   addPlanButton.addEventListener("click", function() {
     addPlan();
+    console.log(planContainer.innerHTML);
   });
 });
