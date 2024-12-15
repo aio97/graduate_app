@@ -18,13 +18,13 @@
         </div>
         <div class="mb-4">
           <%= f.label :image, "背景を選択" %>
-          <%= f.select :image, options_for_select(Book::BACKGROUND_IMAGES), class: "form-select" %>
+          <%= f.select :image, options_for_select(Book::BACKGROUND_IMAGES, @book.image), class: "form-select" %>
         </div>
       </div>
       <div class="row">
         <%= f.fields_for :plans do |plan_form| %>
           <div class="plan-form mb-3 px-2 py-2 border border-primary-subtle">
-            <%= plan_form.hidden_field :id %>
+            <%= plan_form.hidden_field :id, value: plan_form.object.new_record? ? nil : plan_form.object.id %>
             <div class="row">
               <div class="col-md-3 mb-3">
                 <%= plan_form.date_field :date, class: "form-control" %>
