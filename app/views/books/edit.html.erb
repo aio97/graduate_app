@@ -17,9 +17,8 @@
           <%= f.text_area :outline_body, class: "form-control" %>
         </div>
         <div class="mb-4">
-          <%= f.label :image %>
-          <%= f.file_field :image, class: "form-control", accept: 'image/*' %>
-          <%= f.hidden_field :image_cache %>
+          <%= f.label :image, "背景を選択" %>
+          <%= f.select :image, options_for_select(Book::BACKGROUND_IMAGES), class: "form-select" %>
         </div>
       </div>
       <div class="row">

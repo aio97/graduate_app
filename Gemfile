@@ -68,11 +68,10 @@ end
 
 gem "kaminari", "1.2.2"
 gem "bootstrap5-kaminari-views"
-gem "carrierwave", "2.2.2"
+gem "carrierwave", "~> 3.0"
 gem "config", "4.0.0"
 gem "geocoder"
 gem "dotenv-rails"
 gem "rspec-rails"
 gem "factory_bot_rails"
-gem "aws-sdk-s3", require: false
 gem "fog-aws"
