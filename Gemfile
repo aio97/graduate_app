@@ -68,7 +68,7 @@ end
 
 gem "kaminari", "1.2.2"
 gem "bootstrap5-kaminari-views"
-gem "carrierwave", "~> 3.0"
+gem "carrierwave", "~> 3.1"
 gem "config", "4.0.0"
 gem "geocoder"
 gem "dotenv-rails"
